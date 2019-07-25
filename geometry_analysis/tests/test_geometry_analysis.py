@@ -20,6 +20,13 @@ def water_molecule():
     
     return water
 
+def test_create_failure():
+    name = 25
+    symbols = ['H', 'O', 'H']
+    coordinates = np.zeros([3,3])
+    with pytest.raises(TypeError):
+        water = geometry_analysis.Molecule(name, symbols, coordinates)
+
 def test_molecules_set_coordinates(water_molecule):
     """Test bond list is rebuilt when we reset coordinates """
 
